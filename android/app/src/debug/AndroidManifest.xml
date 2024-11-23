@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.transportapp"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <!-- Permisos necesarios -->
+    <!-- Permiso para usar la conexión a Internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- Permiso para acceder a la red Wi-Fi (si es necesario para tu app) -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    
+    <!-- Permiso para acceder a la ubicación (si es necesario para GPS o localización en tiempo real) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    
+    <!-- Permiso para usar el estado de la red -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Permiso para recibir notificaciones push (si estás usando Firebase Cloud Messaging) -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <permission android:name="com.example.transportapp.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="com.example.transportapp.permission.C2D_MESSAGE" />
+
+    <!-- Configuración del tema de la aplicación -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/MainTheme"
+        android:hardwareAccelerated="true"
+        android:usesCleartextTraffic="true"> <!-- Si utilizas HTTP sin SSL -->
+
+        <!-- Activity principal -->
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|screenLayout|locale|layoutDirection|fontScale|screenDensity|nightMode|smallestScreenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/MainTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize">
+
+            <!-- Indicamos que esta es la actividad inicial -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Agrega aquí otros servicios, actividades o proveedores que necesite tu app -->
+        <!-- Por ejemplo, si estás usando Firebase, puedes agregar servicios de Firebase aquí -->
+        
+        <!-- Servicio de Firebase (si estás utilizando Firebase Cloud Messaging o Firestore) -->
+        <service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- Agrega el servicio para la autenticación con Firebase si estás usando Firebase Auth -->
+        <service android:name="com.google.firebase.auth.FirebaseAuth" android:exported="true" />
+
+        <!-- Si usas Firebase Analytics -->
+        <meta-data
+            android:name="com.google.firebase.analytics.app"
+            android:value="${applicationId}" />
+    </application>
+
+</manifest>

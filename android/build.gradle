@@ -1,0 +1,49 @@
+// Configuración para el sistema de construcción
+buildscript {
+    repositories {
+        google() // Repositorio de Google para herramientas de Android
+        mavenCentral() // Repositorio Maven para dependencias adicionales
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.0'  // Plugin de Gradle para Android
+        classpath 'com.google.gms:google-services:4.3.15' // Plugin de Google Services (Firebase)
+    }
+}
+
+// Configuración para todos los proyectos del árbol de dependencias
+allprojects {
+    repositories {
+        google() // Repositorio para dependencias específicas de Google
+        mavenCentral() // Repositorio Maven
+    }
+}
+
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:-options"
+        }
+    }
+}
+
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:deprecation"
+        }
+    }
+}
+
+
+// Directorio de construcción del proyecto raíz
+rootProject.buildDir = "../build"
+
+// Configuración para los subproyectos (como el módulo `app`)
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+
+// Tarea personalizada para limpiar archivos de construcción
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

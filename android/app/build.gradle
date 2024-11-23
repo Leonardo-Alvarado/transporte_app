@@ -1,0 +1,22 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace "com.transporte_app"
+    compileSdkVersion 34
+    defaultConfig {
+        applicationId "com.transporte_app"
+        minSdkVersion 23      // Cambio de 21 a 23, como lo pide firebase_auth
+        targetSdkVersion 34
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+flutter {
+    source = "../.."
+}

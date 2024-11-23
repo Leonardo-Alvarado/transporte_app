@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "235998852789",
+    "project_id": "transporte-f2446",
+    "storage_bucket": "transporte-f2446.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235998852789:android:c807c835f098e7b852b0fc",
+        "android_client_info": {
+          "package_name": "com.transporteapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235998852789-au4eeal8rl6ksg3q073533jb8214hf8g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAN-QgA5KmvBt7tJKv7UqTz3J9QTatN1H8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235998852789-au4eeal8rl6ksg3q073533jb8214hf8g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
